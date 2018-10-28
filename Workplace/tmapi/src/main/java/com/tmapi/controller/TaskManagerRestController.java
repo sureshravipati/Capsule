@@ -8,19 +8,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tmapi.service.TaskManagerService;
 import com.tmapi.to.TaskTO;
 
 @RestController
+@RequestMapping("/")
 public class TaskManagerRestController {
 	
 	@Autowired
 	private TaskManagerService taskManager;
 	
 	
-	@PostMapping("AddTask")
+	@PostMapping("/AddTask")
 	public boolean addTask(@RequestBody TaskTO task) {
 		try {
 			taskManager.addTask(task);
@@ -30,7 +32,7 @@ public class TaskManagerRestController {
 		return true;
 	}
 
-	@GetMapping(value= {"/ParentTask","GetTaskList"})
+	@GetMapping(value= {"/ParentTask","/GetTaskList"})
 	public List<TaskTO> getTaskList() {
 		List<TaskTO> taskList=new ArrayList<TaskTO>();
 		try {
@@ -59,7 +61,7 @@ public class TaskManagerRestController {
 		}		
 	}
 	
-	@PostMapping("UpdateTask")
+	@PostMapping("/UpdateTask")
 	public boolean updateTask(@RequestBody TaskTO task) {
 		try {
 			taskManager.updateTask(task);
