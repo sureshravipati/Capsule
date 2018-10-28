@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { SharedService } from '../../Services/shared.service';
 import {HttpModule} from '@angular/http';
 import { Http, Response } from '@angular/http';
-import { Task } from 'src/app/Models/task';
+import { Task } from './../../Models/task';
 
 describe('EdittaskComponent', () => {
   let component: EdittaskComponent;
@@ -36,12 +36,12 @@ describe('EdittaskComponent', () => {
     expect(service).toBeTruthy();
   
     let  taskData = new Task()
-    taskData.Task1 = "Test New 1";
-    taskData.Parent_ID = 1;
-    taskData.Start_Date = '2018-08-25';
-    taskData.End_Date = '2018-08-30';
-    taskData.Priority = 10;
-    taskData.Task_ID = 2;
+    taskData.taskName = "Test New 1";
+    taskData.parentId = 1;
+    taskData.startDate = '2018-08-25';
+    taskData.endDate = '2018-08-30';
+    taskData.priority = 10;
+    taskData.taskId = 2;
   
     service.UpdateTask(taskData).subscribe((res: Response) => {
       response = res.json();

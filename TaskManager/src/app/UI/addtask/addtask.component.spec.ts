@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { SharedService } from '../../Services/shared.service';
 import {HttpModule} from '@angular/http';
 import { Http, Response } from '@angular/http';
-import { Task } from 'src/app/Models/task';
+import { Task } from './../../Models/task';
 
 describe('AddtaskComponent', () => {
   let component: AddtaskComponent;
@@ -39,11 +39,11 @@ it('should add new task',inject([SharedService], (service : SharedService) => {
   expect(service).toBeTruthy();
 
   let  taskData = new Task()
-  taskData.Task1 = "Test New 1";
-  taskData.Parent_ID = null;
-  taskData.Start_Date = '2018-08-25';
-  taskData.End_Date = '2018-08-30';
-  taskData.Priority = 5;
+  taskData.taskName = "Test task one";
+  taskData.parentId = null;
+  taskData.startDate = '2018-08-25';
+  taskData.endDate = '2018-08-30';
+  taskData.priority = 5;
 
   service.AddTask(taskData).subscribe((res: Response) => {
     response = res.json();

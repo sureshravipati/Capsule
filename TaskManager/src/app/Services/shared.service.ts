@@ -11,7 +11,7 @@ export class SharedService {
 
   taskdata: any;
   taskList: any;
-  baseUrl="http://localhost:8080/";
+  baseUrl="http://localhost:8080/tmapi/";
 
 constructor(private httpServ: Http) { }
   
